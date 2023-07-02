@@ -20,14 +20,17 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: lts/*
+          node-version: 18
+          cache: pnpm
 
-      - name: Build step
-        run: npm install && NITRO_PRESET=deno-deploy && npm run build # 📝 Update the build command(s)
-
-      - name: Upload to Deno Deploy
+      - run: pnpm install
+      - run: pnpm build
+        env:
+          NITRO_PRESET: deno-deploy
+          
+      - name: Deploy to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "bitter-salmon-75"
-          entrypoint: "index.mjs" # 📝 Update the entrypoint
-          root: "./.output/server"
+          project: my-project
+          entrypoint: server/index.ts
+          root: .output
