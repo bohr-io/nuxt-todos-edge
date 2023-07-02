@@ -30,4 +30,4 @@ jobs:
         with:
           project: "bitter-salmon-75"
           entrypoint: "index.js" # 📝 Update the entrypoint
-          root: "."
+          root: "./.output/server"
