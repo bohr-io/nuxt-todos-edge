@@ -9,6 +9,8 @@ if (host.includes('.netlify.app')) {
   hosting = { url: 'https://lagon.app', title: 'Lagon' }
 } else if (host.includes('.deno.dev')) {
   hosting = { url: 'https://deno.com/deploy', title: 'Deno Deploy' }
+} else if (host.includes('.bohr.io')) {
+  hosting = { url: 'https://bohr.io', title: 'bohr.io' }
 }
 const isD1 = host.includes('nuxt-todos-edge.pages.dev')
 const { loggedIn } = useUserSession()
